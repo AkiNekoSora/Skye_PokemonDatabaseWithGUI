@@ -249,9 +249,10 @@ public class UpdatePage extends JFrame {
             PokemonTypes primaryTypeFixed = PokemonTypes.valueOf(primaryType.toUpperCase());
             PokemonTypes secondaryTypeFixed = null;
 
-            assert secondaryType != null;
-            if (!(secondaryType.isEmpty())) {
-                secondaryTypeFixed = PokemonTypes.valueOf(secondaryType.toUpperCase());
+            if (secondaryType != null) {
+                if (!(secondaryType.isEmpty())) {
+                    secondaryTypeFixed = PokemonTypes.valueOf(secondaryType.toUpperCase());
+                }
             }
 
             pokemonTypes = new PokemonTypesManager(primaryTypeFixed, secondaryTypeFixed);

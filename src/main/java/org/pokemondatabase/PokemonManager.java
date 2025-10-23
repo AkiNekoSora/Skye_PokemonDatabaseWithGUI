@@ -358,7 +358,13 @@ public class PokemonManager {
         }
 
         // Grab Pokédex Number
-        int pokedexNumber = Integer.parseInt(variables[1]);
+        int pokedexNumber;
+        try {
+            pokedexNumber = Integer.parseInt(variables[1]);
+        } catch (NumberFormatException e) {
+            return new ValidationResults(false, "Pokédex ID must be a number. Error can be " +
+                    "found on line " + lineCounter + ".");
+        }
 
         if (!(validateUniquePokedexNumber(pokedexNumber, pokemonStorage).getIsSuccess())) {
             return new ValidationResults(false, "Pokédex Number must be unique. Error " +

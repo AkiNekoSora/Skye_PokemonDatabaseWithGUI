@@ -100,13 +100,14 @@ public class CheckNextEvoPage extends JFrame {
             hasErrors = true;
         } else if(isDigit(pokedexNumber)) {
             pokedexNumberInt = Integer.parseInt(pokedexNumber);
-        }
-        for (Pokemon pokemon : pokemonDB) {
-            if (pokemon.getPokedexNumber() == pokedexNumberInt) specifiedPokemon = pokemon;
-        }
-        if (specifiedPokemon == null) {
-            errorLabelPokeNumber.setText("No Pokémon Exists with this Pokédex Number");
-            hasErrors = true;
+
+            for (Pokemon pokemon : pokemonDB) {
+                if (pokemon.getPokedexNumber() == pokedexNumberInt) specifiedPokemon = pokemon;
+            }
+            if (specifiedPokemon == null) {
+                errorLabelPokeNumber.setText("No Pokémon Exists with this Pokédex Number");
+                hasErrors = true;
+            }
         }
 
         //CURRENT EVOLUTION LEVEL ERROR CHECKER
